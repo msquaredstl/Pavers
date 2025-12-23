@@ -36,8 +36,8 @@ class PaverProduct
                 <?php
                 woocommerce_wp_checkbox([
                     'id' => self::META_KEY,
-                    'label' => __('Enable Paver Customization', 'pavers'),
-                    'description' => __('Show engraving layout fields on this product page and save them with the order.', 'pavers'),
+                    'label' => __('Enable Paver Request Form', 'pavers'),
+                    'description' => __('Show the paver engraving request form on this product page.', 'pavers'),
                     'value' => get_post_meta($post->ID, self::META_KEY, true),
                 ]);
                 ?>

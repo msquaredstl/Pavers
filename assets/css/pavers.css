@@ -21,8 +21,7 @@
 }
 
 .pavers-field input,
-.pavers-field textarea,
-.pavers-field select {
+.pavers-field textarea {
   border: 1px solid #cbd5e1;
   border-radius: 4px;
   padding: 0.6rem 0.75rem;
@@ -32,37 +31,6 @@
 
 .pavers-field textarea {
   resize: vertical;
-}
-
-.pavers-customizer {
-  border: 1px solid #e2e8f0;
-  padding: 1rem;
-  border-radius: 6px;
-  margin-bottom: 1.25rem;
-  background: #f8fafc;
-}
-
-.pavers-customizer__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0.75rem;
-  margin: 0.75rem 0 0.5rem;
-}
-
-.pavers-customizer__title {
-  margin: 0 0 0.35rem;
-  font-size: 1rem;
-}
-
-.pavers-customizer__hint,
-.pavers-customizer__note {
-  margin: 0;
-  color: #475569;
-  font-size: 14px;
-}
-
-.pavers-customizer__note {
-  margin-top: 0.5rem;
 }
 
 .pavers-form__disclaimer {
