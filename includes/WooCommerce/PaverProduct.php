@@ -10,24 +10,38 @@ class PaverProduct
 
     public function register(): void
     {
-        add_action('woocommerce_product_options_general_product_data', [$this, 'renderProductField']);
+        add_filter('woocommerce_product_data_tabs', [$this, 'addProductTab']);
+        add_action('woocommerce_product_data_panels', [$this, 'renderProductTab']);
         add_action('woocommerce_process_product_meta', [$this, 'saveProductMeta']);
     }
 
-    public function renderProductField(): void
+    public function addProductTab(array $tabs): array
+    {
+        $tabs['pavers'] = [
+            'label' => __('Paver Settings', 'pavers'),
+            'target' => 'pavers_product_data',
+            'class' => [],
+        ];
+
+        return $tabs;
+    }
+
+    public function renderProductTab(): void
     {
         global $post;
 
         ?>
-        <div class="options_group">
-            <?php
-            woocommerce_wp_checkbox([
-                'id' => self::META_KEY,
-                'label' => __('Enable Paver Customization', 'pavers'),
-                'description' => __('Allow customers to submit engraving layout details when adding this product to the cart.', 'pavers'),
-                'value' => get_post_meta($post->ID, self::META_KEY, true),
-            ]);
-            ?>
+        <div id="pavers_product_data" class="panel woocommerce_options_panel">
+            <div class="options_group">
+                <?php
+                woocommerce_wp_checkbox([
+                    'id' => self::META_KEY,
+                    'label' => __('Enable Paver Request Form', 'pavers'),
+                    'description' => __('Show the paver engraving request form on this product page.', 'pavers'),
+                    'value' => get_post_meta($post->ID, self::META_KEY, true),
+                ]);
+                ?>
+            </div>
         </div>
         <?php
     }
